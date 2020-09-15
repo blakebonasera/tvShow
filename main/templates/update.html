@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/shows">Go Back</a>
+    <div id="container">
+        <h1>Edit a Show</h1>
+        {% for Tv in all_tv%}
+        <form action="/update/{{Tv.id}}" method="post">
+            {% endfor %}
+            {% csrf_token %}
+            <label for="title">
+                Title
+            </label>
+            <input type="text" name="title" id="title">
+            <br>
+            <br>
+            <label for="network">Network</label>
+            <input type="text" name="network" id="network">
+            <label for="release">Relaease Date</label>
+            <input type="date" name="release" id="release">
+            <br>
+            <br>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description">
+            <br>
+            <br>
+            <button type="submit">Update Show</button>
+        </form>
+    </div>
+</body>
+</html>

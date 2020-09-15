@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>All Shows</h1>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Network</th>
+                <th>Release Date</th>
+                <th>Action</th>
+            </tr>
+            {% for Tv in all_tv %}
+            <tr>
+                <td>{{Tv.id}}</td>
+                <td>{{Tv.title}}</td>
+                <td>{{Tv.network}}</td>
+                <td>{{Tv.release}}</td>
+                <td><a href="/shows/{{Tv.id}}">View</a>|<a href="/shows/{{Tv.id}}/edit">Edit</a>|<a href="/shows/{{Tv.id}}/delete">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/shows/new">Create a new Show</a>
+    </div>
+</body>
+</html>
