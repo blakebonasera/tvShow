@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    </head>
+    <body>
     <a href="/shows">Go Back</a>
     <div id="container">
         <h1>Edit a Show</h1>
         {% for Tv in all_tv%}
         <form action="/update/{{Tv.id}}" method="post">
-            {% endfor %}
-            {% csrf_token %}
-            <label for="title">
-                Title
-            </label>
-            <input type="text" name="title" id="title">
-            <br>
-            <br>
+        {% endfor %} {% csrf_token %}
+            <label for="title"> Title </label>
+            <input type="text" name="title" id="title" />
+            <br />
+            <br />
             <label for="network">Network</label>
-            <input type="text" name="network" id="network">
+            <input type="text" name="network" id="network" />
             <label for="release">Relaease Date</label>
-            <input type="date" name="release" id="release">
-            <br>
-            <br>
+            <input type="date" name="release" id="release" />
+            <br />
+            <br />
             <label for="description">Description</label>
-            <input type="text" name="description" id="description">
-            <br>
-            <br>
+            <input type="text" name="description" id="description" />
+            <br />
+            <br />
             <button type="submit">Update Show</button>
         </form>
+        {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+        </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
     </div>
-</body>
+    </body>
 </html>
